@@ -4,7 +4,8 @@
 //
 
 export const colorCode = (color) => {
-  return COLORS.indexOf(color)
+  //lowecase all inputs 
+  return COLORS.indexOf(color.toLowerCase())
 };
 
 export const COLORS = [

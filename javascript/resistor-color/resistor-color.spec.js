@@ -18,4 +18,12 @@ describe('ResistorColor', () => {
   test('Colors', () => {
     expect(COLORS).toEqual(["black","brown","red","orange","yellow","green","blue","violet","grey","white"])
   })
+
+  test('invalid color input', () => {
+    expect(colorCode("magenta")).toEqual(-1)
+  })
+
+  test('uppercase color input', () => {
+    expect(colorCode("BLACK")).toEqual(0)
+  })
 })
