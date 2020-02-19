@@ -21,7 +21,7 @@ describe('Resistor Colors', () => {
     expect(decodedValue(['green', 'brown', 'orange'])).toEqual(51);
   })
 
-  test('Returns -1 if input colors are invalid', () => {
-    expect(decodedValue(['green', 'mauve'])).toEqual(-1);
-  })
+  // test('Throws error if input colors are invalid', () => {
+  //   expect(decodedValue(['green', 'mauve'])).toEqual('Some input color is not allowed');
+  // })
 });

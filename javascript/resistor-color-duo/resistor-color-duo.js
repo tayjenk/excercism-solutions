@@ -3,13 +3,14 @@
 // convenience to get you started writing code faster.
 //
 
-export const decodedValue = (colorArr) => {
-  let color1 = colorArr[0].toLowerCase()
-  let color2 = colorArr[1].toLowerCase()
-  if (COLORS[color1] && COLORS[color2]) {
-    return parseInt(COLORS[color1] + COLORS[color2])
+//destructure colors directly from the input
+export const decodedValue = ([color1, color2]) => {
+  // let color1 = colorArr[0].toLowerCase()
+  // let color2 = colorArr[1].toLowerCase()
+  if (!COLORS[color1] || !COLORS[color2]) {
+    throw new RangeError('Some input color is not allowed')
   }
-  return -1
+  return parseInt(COLORS[color1] + COLORS[color2])
 
 };
 
