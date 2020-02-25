@@ -3,12 +3,10 @@
 // convenience to get you started writing code faster.
 //
 
+// one gigasecond = 10^12 milliseconds
+const GIGA_TO_MILLI = Math.pow(10,12)
+
 export const gigasecond = time => {
-   //convert input time to milliseconds from January 1, 1970
-   const milliseconds = time.getTime()
-   //add one gigasecond to the current milliseconds
-   // one gigasecond = 10^12 milliseconds
-   const plusGigaSec = milliseconds + Math.pow(10, 12)
-   console.log(time)
-   return new Date(plusGigaSec)
+   //convert input time to milliseconds from January 1, 1970 and add one gigasecond
+   return new Date(time.getTime() + GIGA_TO_MILLI)
 };
