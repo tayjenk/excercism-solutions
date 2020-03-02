@@ -11,7 +11,5 @@ const COMPLEMENT = {
 
 export const toRna = dna => {
   if (!dna) return ''
-  return dna.split('').map(nucleo => {
-    return nucleo = COMPLEMENT[nucleo]
-  }).join('')
+  return dna.split('').map(nucleo => nucleo = COMPLEMENT[nucleo]).join('')
 }
