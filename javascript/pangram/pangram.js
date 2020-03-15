@@ -3,11 +3,11 @@
 // convenience to get you started writing code faster.
 //
 
-export const isPangram = (sent) => {
-  if (!sent) return false
+export const isPangram = (sentence) => {
+  if (!sentence) return false
   const alpha = new Set()
-  for(let letter of sent.toLowerCase()) {
-    if(letter.charCodeAt() >= 97 && letter.charCodeAt() <= 122)  alpha.add(letter)
+  for(let letter of sentence.toLowerCase()) {
+    if(letter >= 'a' && letter <= 'z') alpha.add(letter)
   }
-  return alpha.size >= 26
+  return alpha.size === 26
 };
