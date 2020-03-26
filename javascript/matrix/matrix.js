@@ -4,26 +4,21 @@
 //
 
 export class Matrix {
-  constructor(string) {
-    this.input = string.split('\n')
+  constructor(matrixString) {
+    this.splitMatrix = matrixString.split('\n')
   }
 
   get rows() {
-    const array = this.input
-    const rowMatrix = []
-    array.forEach(string => {
-      let row = string.split(' ').map(char => parseInt(char))
-      rowMatrix.push(row)
-    })
-    return rowMatrix
+    return this.splitMatrix.map(matrixRow => matrixRow.split(' ').map(matrixPt => parseInt(matrixPt)))
   }
 
   get columns() {
-    const array = this.rows
-    let columnMatrix = []
+    const matrixByRow = this.rows
+    const columnMatrix = []
+    const LENGTH = Math.max(matrixByRow.length, matrixByRow[0].length)
     let i = 0
-    while(i < Math.max(array.length, array[0].length)) {
-      let column = array.map(row => row[i])
+    while(i < LENGTH) {
+      let column = matrixByRow.map(row => row[i])
       columnMatrix.push(column)
       i++
     }
