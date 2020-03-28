@@ -5,19 +5,19 @@
 
 export class Matrix {
   constructor(matrixString) {
-    this.content = matrixString.split("\n")
+    this.content = matrixString
   }
 
   get rows() {
-    return this.content.map(numberSet => this.mapToNumber(numberSet))
+    return this.mapToMatrixArr(this.content)
   }
 
   get columns() {
     return this.transpose(this.rows)
   }
 
-  mapToNumber(numberString) {
-    return numberString.split(" ").map(num => parseInt(num))
+  mapToMatrixArr(matrixInString) {
+    return matrixInString.split("\n").map(stringSet => stringSet.split(" ").map(num => parseInt(num)))
   }
 
   transpose(matrix) {
