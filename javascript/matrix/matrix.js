@@ -5,23 +5,27 @@
 
 export class Matrix {
   constructor(matrixString) {
-    this.splitMatrix = matrixString.split('\n')
+    this.content = matrixString.split("\n")
   }
 
   get rows() {
-    return this.splitMatrix.map(matrixRow => matrixRow.split(' ').map(matrixPt => parseInt(matrixPt)))
+    return this.content.map(numberSet => this.mapToNumber(numberSet))
   }
 
   get columns() {
-    const matrixByRow = this.rows
-    const columnMatrix = []
-    const LENGTH = Math.max(matrixByRow.length, matrixByRow[0].length)
-    let i = 0
-    while(i < LENGTH) {
-      let column = matrixByRow.map(row => row[i])
-      columnMatrix.push(column)
-      i++
+    return this.transpose(this.rows)
+  }
+
+  mapToNumber(numberString) {
+    return numberString.split(" ").map(num => parseInt(num))
+  }
+
+  transpose(matrix) {
+    const tranposeMatrix = []
+    for (let i = 0; i < matrix[0].length; i++) {
+      let tRow = matrix.map(matrixRow => matrixRow[i])
+      tranposeMatrix.push(tRow)
     }
-    return columnMatrix
+    return tranposeMatrix
   }
 }
