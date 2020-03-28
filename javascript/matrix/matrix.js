@@ -4,20 +4,20 @@
 //
 
 export class Matrix {
-  constructor(matrixString) {
-    this.content = matrixString
+  constructor(matrixInString) {
+    this.content = matrixInString
   }
 
   get rows() {
-    return this.mapToMatrixArr(this.content)
+    return this.mapToArrMatrix(this.content)
   }
 
   get columns() {
     return this.transpose(this.rows)
   }
 
-  mapToMatrixArr(matrixInString) {
-    return matrixInString.split("\n").map(stringSet => stringSet.split(" ").map(num => parseInt(num)))
+  mapToArrMatrix(stringMatrix) {
+    return stringMatrix.split("\n").map(stringSet => stringSet.split(" ").map(num => parseInt(num)))
   }
 
   transpose(matrix) {
