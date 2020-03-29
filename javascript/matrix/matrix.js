@@ -9,14 +9,14 @@ export class Matrix {
   }
 
   get rows() {
-    return this.mapToArrMatrix(this.content)
+    return this.parseMatrix(this.content)
   }
 
   get columns() {
     return this.transpose(this.rows)
   }
 
-  mapToArrMatrix(stringMatrix) {
+  parseMatrix(stringMatrix) {
     return stringMatrix.split("\n").map(stringSet => stringSet.split(" ").map(num => parseInt(num)))
   }
 
