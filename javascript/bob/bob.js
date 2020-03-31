@@ -6,21 +6,18 @@
 
 export const hey = message => {
   let response = "Whatever."
-  switch(!!message) {
+  switch (!!message) {
     case RegExp(/^\''|^\s+$/).test(message):
       response = "Fine. Be that way!"
       break
-    case (message === message.toUpperCase() &&
-          RegExp(/[A-Z]\?/).test(message)):
-      response = 'Calm down, I know what I\'m doing!'
+    case message === message.toUpperCase() && RegExp(/[A-Z]\?/).test(message):
+      response = "Calm down, I know what I'm doing!"
       break
     case RegExp(/\?$|(\?\s+)$/).test(message):
       response = "Sure."
       break
-    case (message === message.toUpperCase() &&
-          RegExp(/[A-Z]/).test(message)):
+    case message === message.toUpperCase() && RegExp(/[A-Z]/).test(message):
       response = "Whoa, chill out!"
-      break
   }
   return response
 }
