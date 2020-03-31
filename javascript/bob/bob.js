@@ -5,26 +5,23 @@
 //
 const isSilent = message => RegExp(/^\''|^\s+$/).test(message)
 const isYellingAsking = message => message === message.toUpperCase() && RegExp(/[A-Z]\?/).test(message)
-const isAsking = message => RegExp(/\?$|(\?\s+)$/).test(message)
+const isAsking = message => RegExp(/(\?\s*)$/).test(message)
 const isYelling = message => message === message.toUpperCase() && RegExp(/[A-Z]/).test(message)
 
 
 export const hey = message => {
-  let response = "Whatever."
   switch (!!message) {
     case isSilent(message):
-      response = "Fine. Be that way!"
-      break
+      return "Fine. Be that way!"
     case isYellingAsking(message):
-      response = "Calm down, I know what I'm doing!"
-      break
+      return "Calm down, I know what I'm doing!"
     case isAsking(message):
-      response = "Sure."
-      break
+      return "Sure."
     case isYelling(message):
-      response = "Whoa, chill out!"
+      return "Whoa, chill out!"
+    default:
+      return "Whatever."
   }
-  return response
 }
 
 
