@@ -3,9 +3,10 @@
 // This is only a SKELETON file for the 'Bob' exercise. It's been provided as a
 // convenience to get you started writing code faster.
 //
-const isSilent = message => RegExp(/^\''|^\s+$/).test(message)
+//const isSilent = message => RegExp(/^\''|^\s+$/).test(message)
+const isSilent = message => {if(message.trim() === '') return !!message}
 const isYellingAsking = message => message === message.toUpperCase() && RegExp(/[A-Z]\?/).test(message)
-const isAsking = message => RegExp(/(\?\s*)$/).test(message)
+const isAsking = message => message.trimEnd().endsWith("?")
 const isYelling = message => message === message.toUpperCase() && RegExp(/[A-Z]/).test(message)
 
 
