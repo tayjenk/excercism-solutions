@@ -9,18 +9,25 @@
 
 3 rows
 [1] [1, 1] [1, ]
-            0 1 2
+     0  1   0 1 2
 4 rows
 [1] [1, 1] [1, 2, 1] [1, 3, 3, 1]
 */
 
-export const rows = numOfRows => {
+export const rows = (numOfRows) => {
   const triangle = []
-  let i = 1;
-  while(i <= numOfRows) {
-    if(!triangle.length) triangle.push([1])
-
+  if (!numOfRows) return triangle
+  triangle.push([1])
+  let i = 1
+  while (i < numOfRows) {
+    const prevRow = triangle[triangle.length - 1],
+      newRow = []
+    prevRow.forEach((el, idx) => {
+      prevRow[idx - 1] ? newRow.push(prevRow[idx - 1] + el) : newRow.push(el)
+    })
+    newRow.push(1)
+    triangle.push(newRow)
     i++
   }
   return triangle
-};
+}
