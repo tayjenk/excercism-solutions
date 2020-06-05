@@ -5,9 +5,7 @@
 
 export class Triangle {
   constructor(side1, side2, side3) {
-    this.s1 = side1,
-    this.s2 = side2,
-    this.s3 = side3,
+    [this.s1, this.s2, this.s3] = [...arguments]
     this.sidesSet = new Set([this.s1, this.s2, this.s3])
     this.isIsosceles = this.isIsosceles.bind(this)
   }
