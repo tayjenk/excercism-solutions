@@ -18,8 +18,9 @@ export const rows = (numOfRows) => {
   const triangle = []
   if (!numOfRows) return triangle
   triangle.push([1])
-  let i = 1
-  while (i < numOfRows) {
+  //let i = 1
+  // (i < numOfRows)
+  for (let i = 1; i < numOfRows; i++) {
     const prevRow = triangle[triangle.length - 1],
       newRow = []
     prevRow.forEach((el, idx) => {
@@ -27,7 +28,6 @@ export const rows = (numOfRows) => {
     })
     newRow.push(1)
     triangle.push(newRow)
-    i++
   }
   return triangle
 }
