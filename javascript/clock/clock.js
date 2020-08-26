@@ -4,12 +4,19 @@
 //
 
 export class Clock {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  constructor(hours = 0, minutes = 0) {
+    if(minutes >= 60) {
+      hours += Math.floor(minutes / 60)
+      minutes = minutes % 60
+    }
+    this.minutes = String(minutes).padStart(2, '0')
+    if(hours < 0) hours = 24 + hours
+    if(hours >= 24) hours = hours % 24
+    this.hours = String(hours).padStart(2, '0')
   }
 
   toString() {
-    throw new Error('Remove this statement and implement this function');
+    return `${this.hours}:${this.minutes}`
   }
 
   plus() {
